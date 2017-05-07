@@ -41,6 +41,8 @@ class TelegramController extends Controller {
 
         $this->chat_id = $chat_id;
 
+        Log::debug('message ' . $message);
+
         switch (true) {
             case stristr($message, "/btcequivalent"):
 
