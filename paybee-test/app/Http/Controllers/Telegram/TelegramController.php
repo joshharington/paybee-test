@@ -15,7 +15,7 @@ class TelegramController extends Controller {
 
     public function __construct() {
         $this->base_token = env('TELEGRAM_BOT_TOKEN');
-        $this->base_url = 'https://api.telegram.org/bot'. $this->base_token;
+        $this->base_url = 'https://api.telegram.org/bot'. env('TELEGRAM_BOT_TOKEN');
     }
 
     public function index()
@@ -49,6 +49,8 @@ class TelegramController extends Controller {
                 $message = str_replace('/btcequivalent', '', $message);
 
                 $exploded = explode(' ', $message);
+
+                Log::debug('message ' . $message);
 
                 if(count($exploded) == 0) {
                     $this->sendMessage('Please provide an amount and currency you wish to convert.');
