@@ -14,8 +14,8 @@ class TelegramController extends Controller {
     protected $chat_id;
 
     public function __construct() {
-        $this->base_token = env('TELEGRAM_BOT_TOKEN');
-        $this->base_url = 'https://api.telegram.org/bot'. env('TELEGRAM_BOT_TOKEN');
+        $this->base_token = env('TELEGRAM_BOT_TOKEN', '392955744:AAH-hHaRwygdmm0KkS0TgnkFEU3QiRj1iEY');
+        $this->base_url = 'https://api.telegram.org/bot'. env('TELEGRAM_BOT_TOKEN', '392955744:AAH-hHaRwygdmm0KkS0TgnkFEU3QiRj1iEY');
     }
 
     public function index()
