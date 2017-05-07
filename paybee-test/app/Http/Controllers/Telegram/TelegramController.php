@@ -27,7 +27,7 @@ class TelegramController extends Controller {
         $chat_id = -1;
         $message = '';
 
-        Log::error($result);
+        Log::debug($result);
 
         if (array_key_exists('message', $result)) {
             $chat_id = $result['message']['chat']['id'];
