@@ -20,3 +20,14 @@ Auth::routes();
 Route::get('/', function() {
     return view('welcome');
 });
+
+Route::group(['middleware' => ['auth']], function() {
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::group(['namespace' => 'Bot', 'prefix' => '/bot-config'], function() {
+        Route::get('/', ['as' => 'bot-config', 'uses' => 'BotConfigController@index']);
+        Route::post('/', ['as' => 'bot-config', 'uses' => 'BotConfigController@update']);
+    });
+
+});
