@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+/** TELEGRAM  **/
+Route::post('/', ['as' => 'get-btc-equivalent', 'uses' => 'Telegram\\TelegramController@index']);
+
+/** FRONTEND  **/
+Auth::routes();
+
+Route::get('/', function() {
     return view('welcome');
 });
