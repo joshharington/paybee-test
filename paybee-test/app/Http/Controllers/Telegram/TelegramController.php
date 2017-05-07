@@ -49,7 +49,7 @@ class TelegramController extends Controller {
 
                 $message = str_replace('/btcequivalent', '', $message);
 
-                $exploded = explode(' ', $message);
+                $exploded = explode(' ', trim($message));
 
                 Log::debug('message ' . $message);
 
