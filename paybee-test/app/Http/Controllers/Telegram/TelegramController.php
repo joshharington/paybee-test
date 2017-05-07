@@ -27,9 +27,6 @@ class TelegramController extends Controller {
         $chat_id = -1;
         $message = '';
 
-        Log::debug($result);
-        Log::debug($this->base_url);
-
         if (array_key_exists('message', $result)) {
             $chat_id = $result['message']['chat']['id'];
             $message = $result['message']['text'];
@@ -42,16 +39,12 @@ class TelegramController extends Controller {
 
         $this->chat_id = $chat_id;
 
-        Log::debug('message ' . $message);
-
         switch (true) {
             case stristr($message, "/btcequivalent"):
 
                 $message = str_replace('/btcequivalent', '', $message);
 
                 $exploded = explode(' ', trim($message));
-
-                Log::debug('message ' . $message);
 
                 if(count($exploded) == 0) {
                     $this->sendMessage('Please provide an amount and currency you wish to convert.');
