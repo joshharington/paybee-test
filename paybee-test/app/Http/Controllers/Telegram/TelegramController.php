@@ -46,7 +46,7 @@ class TelegramController extends Controller {
         switch (true) {
             case stristr($message, "/btcequivalent"):
 
-                $message = str_replace('/btcequivalent ', '', $message);
+                $message = str_replace('/btcequivalent', '', $message);
 
                 $exploded = explode(' ', $message);
 
